@@ -13,21 +13,17 @@ public class UserService {
     @Autowired
     UserRepository userRepository3;
 
-    public User createUser(String username, String password)
-    {
+    public User createUser(String username, String password){
         User user = new User(username, password);
         userRepository3.save(user);
         return user;
     }
 
-    public void deleteUser(int userId)
-    {
+    public void deleteUser(int userId){
         userRepository3.deleteById(userId);
-
     }
 
-    public User updateUser(Integer id, String password)
-    {
+    public User updateUser(Integer id, String password)  {
         User user;
 //        if(!userRepository3.findById(id).isPresent()) {
 //           throw new Exception();
