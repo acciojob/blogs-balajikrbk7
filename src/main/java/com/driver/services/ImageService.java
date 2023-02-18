@@ -15,9 +15,7 @@ public class ImageService {
     @Autowired
     ImageRepository imageRepository2;
 
-    public Image addImage(Integer blogId, String description, String dimensions){
-        //add an image to the blog
-
+    public Image addImage(Integer blogId, String description, String dimensions) {
         //add an image to the blog
 //        if(!blogRepository2.findById(blogId).isPresent()) {
 //            throw new Exception();
@@ -30,15 +28,11 @@ public class ImageService {
         //Here I am not explicitly adding image in image-repository because due to cascading effect
     }
 
-    public void deleteImage(Integer id)
-    {
+    public void deleteImage(Integer id){
         imageRepository2.deleteById(id);
-
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
-        //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
-
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         String [] scrarray = screenDimensions.split("X"); //A=Length   X    B=Breadth
 //        if(!imageRepository2.findById(id).isPresent()){
@@ -59,8 +53,7 @@ public class ImageService {
 
     }
 
-    private int no_Images(int scrl, int scrb, int imgl, int imgb)
-    {
+    private int no_Images(int scrl, int scrb, int imgl, int imgb) {
         int lenC = scrl/imgl; //
         int lenB = scrb/imgb;
         return lenC*lenB;
