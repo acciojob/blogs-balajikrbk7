@@ -1,17 +1,17 @@
 package com.driver.models;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name ="Blog")
+@Table(name = "Blog")
+public class Blog{
 
-public class Blog
-{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =GenerationType.IDENTITY)
     private int id;
     private String title;
     private String content;
@@ -19,19 +19,20 @@ public class Blog
     @CreationTimestamp
     private Date pubDate;
 
+    //Mapping
     @ManyToOne
     @JoinColumn
     private User user;
 
-
-    @OneToMany(mappedBy="blog",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
     @JoinColumn
     private List<Image> imageList;
 
+    public Blog() {
 
+    }
 
-    public Blog(User user, String title, String content)
-    {
+    public Blog(User user, String title, String content) {
         this.title = title;
         this.content = content;
         this.user = user;
@@ -69,6 +70,7 @@ public class Blog
     public void setContent(String content) {
         this.content = content;
     }
+
     public Date getPubDate() {
         return pubDate;
     }
